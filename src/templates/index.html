@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Greeting App</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>diba nga i2 ang iyong gustooo</h1>
+            <form id="greetForm">
+                <label for="number">Pili ka (1-4):</label>
+                <input type="number" id="number" name="number" min="1" max="4" required />
+                <button type="submit">Greet</button>
+            </form>
+            <p class="greeting" id="greeting"></p>
+        </div>
+        <script>
+            const names = { 1: "Yvan", 2: "Yuan", 3: "Gabo", 4: "Sean" };
+
+            document.getElementById("greetForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+                const number = parseInt(document.getElementById("number").value);
+                let greeting = "";
+                if (number in names) {
+                    greeting = `HASHASHASHAH ${names[number]}, pakyu!`;
+                } else {
+                    greeting = "Invalid number. Please enter a number between 1 and 4.";
+                }
+                document.getElementById("greeting").textContent = greeting;
+            });
+        </script>
+    </body>
+</html>
